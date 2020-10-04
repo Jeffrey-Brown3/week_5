@@ -12,7 +12,7 @@ import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNotNull;
 
 /**
- * Unit tests for the DatabaseStockService
+ * Unit tests for the DatabaseStockService 
  */
 public class DatabaseStockServiceTest {
 
