@@ -1,6 +1,7 @@
 package com.origamisoftware.teach.advanced.model;
 
 import java.math.BigDecimal;
+import java.text.SimpleDateFormat;
 import java.util.Date;
 
 /**
@@ -11,6 +12,7 @@ public class StockQuote extends StockData {
     private BigDecimal price;
     private Date date;
     private String symbol;
+
 
     /**
      * Create a new instance of a StockQuote.

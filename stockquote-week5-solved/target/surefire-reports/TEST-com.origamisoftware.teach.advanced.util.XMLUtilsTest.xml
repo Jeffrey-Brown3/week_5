@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" ?>
-<testsuite tests="3" failures="0" name="com.origamisoftware.teach.advanced.services.DatabaseStockServiceTest" time="0.032" errors="3" skipped="0">
+<testsuite tests="3" failures="0" name="com.origamisoftware.teach.advanced.util.XMLUtilsTest" time="0" errors="3" skipped="0">
   <properties>
     <property name="java.runtime.name" value="Java(TM) SE Runtime Environment"/>
     <property name="java.vm.version" value="14.0.2+12-46"/>
@@ -60,10 +60,17 @@
     <property name="sun.stdout.encoding" value="cp437"/>
     <property name="sun.cpu.isalist" value="amd64"/>
   </properties>
-  <testcase classname="com.origamisoftware.teach.advanced.services.DatabaseStockServiceTest" name="testGetQuoteWithIntervalBasic" time="0.011">
-    <error message="Could not initialize db because of:stockquote-week5-solved\src\main\resources\sql\stocks_db_initialization.sql (The system cannot find the path specified)" type="com.origamisoftware.teach.advanced.util.DatabaseInitializationException">com.origamisoftware.teach.advanced.util.DatabaseInitializationException: Could not initialize db because of:stockquote-week5-solved\src\main\resources\sql\stocks_db_initialization.sql (The system cannot find the path specified)
-	at com.origamisoftware.teach.advanced.util.DatabaseUtils.initializeDatabase(DatabaseUtils.java:105)
-	at com.origamisoftware.teach.advanced.services.DatabaseStockServiceTest.setUp(DatabaseStockServiceTest.java:32)
+  <testcase classname="com.origamisoftware.teach.advanced.util.XMLUtilsTest" name="testUnmarshallStocksWithSchemaValidation" time="0">
+    <error message="stockquote-week5-solved\src\main\resources\xml\stock_info.xml" type="java.nio.file.NoSuchFileException">java.nio.file.NoSuchFileException: stockquote-week5-solved\src\main\resources\xml\stock_info.xml
+	at java.base/sun.nio.fs.WindowsException.translateToIOException(WindowsException.java:85)
+	at java.base/sun.nio.fs.WindowsException.rethrowAsIOException(WindowsException.java:103)
+	at java.base/sun.nio.fs.WindowsException.rethrowAsIOException(WindowsException.java:108)
+	at java.base/sun.nio.fs.WindowsFileSystemProvider.newByteChannel(WindowsFileSystemProvider.java:235)
+	at java.base/java.nio.file.Files.newByteChannel(Files.java:375)
+	at java.base/java.nio.file.Files.newByteChannel(Files.java:426)
+	at java.base/java.nio.file.Files.readAllBytes(Files.java:3272)
+	at java.base/java.nio.file.Files.readString(Files.java:3350)
+	at com.origamisoftware.teach.advanced.util.XMLUtilsTest.testUnmarshallStocksWithSchemaValidation(XMLUtilsTest.java:83)
 	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
 	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
 	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
@@ -71,7 +78,7 @@
 	at org.junit.runners.model.FrameworkMethod$1.runReflectiveCall(FrameworkMethod.java:45)
 	at org.junit.internal.runners.model.ReflectiveCallable.run(ReflectiveCallable.java:15)
 	at org.junit.runners.model.FrameworkMethod.invokeExplosively(FrameworkMethod.java:42)
-	at org.junit.internal.runners.statements.RunBefores.evaluate(RunBefores.java:27)
+	at org.junit.internal.runners.statements.InvokeMethod.evaluate(InvokeMethod.java:20)
 	at org.junit.runners.ParentRunner.runLeaf(ParentRunner.java:263)
 	at org.junit.runners.BlockJUnit4ClassRunner.runChild(BlockJUnit4ClassRunner.java:68)
 	at org.junit.runners.BlockJUnit4ClassRunner.runChild(BlockJUnit4ClassRunner.java:47)
@@ -93,45 +100,19 @@
 	at org.apache.maven.surefire.booter.ProviderFactory.invokeProvider(ProviderFactory.java:85)
 	at org.apache.maven.surefire.booter.ForkedBooter.runSuitesInProcess(ForkedBooter.java:115)
 	at org.apache.maven.surefire.booter.ForkedBooter.main(ForkedBooter.java:75)
-Caused by: java.io.FileNotFoundException: stockquote-week5-solved\src\main\resources\sql\stocks_db_initialization.sql (The system cannot find the path specified)
-	at java.base/java.io.FileInputStream.open0(Native Method)
-	at java.base/java.io.FileInputStream.open(FileInputStream.java:212)
-	at java.base/java.io.FileInputStream.&lt;init&gt;(FileInputStream.java:154)
-	at java.base/java.io.FileInputStream.&lt;init&gt;(FileInputStream.java:109)
-	at com.origamisoftware.teach.advanced.util.DatabaseUtils.initializeDatabase(DatabaseUtils.java:87)
-	... 30 more
 </error>
-    <system-err>Oct 18, 2020 6:16:15 PM org.hibernate.cfg.Configuration configure
-INFO: HHH000043: Configuring from resource: hibernate.cfg.xml
-Oct 18, 2020 6:16:15 PM org.hibernate.cfg.Configuration getConfigurationInputStream
-INFO: HHH000040: Configuration resource: hibernate.cfg.xml
-Oct 18, 2020 6:16:15 PM org.hibernate.cfg.Configuration doConfigure
-INFO: HHH000041: Configured SessionFactory: null
-Oct 18, 2020 6:16:15 PM org.hibernate.cfg.Configuration configure
-INFO: HHH000043: Configuring from resource: hibernate.cfg.xml
-Oct 18, 2020 6:16:15 PM org.hibernate.cfg.Configuration getConfigurationInputStream
-INFO: HHH000040: Configuration resource: hibernate.cfg.xml
-Oct 18, 2020 6:16:15 PM org.hibernate.cfg.Configuration doConfigure
-INFO: HHH000041: Configured SessionFactory: null
-Oct 18, 2020 6:16:15 PM org.hibernate.cfg.Configuration configure
-INFO: HHH000043: Configuring from resource: hibernate.cfg.xml
-Oct 18, 2020 6:16:15 PM org.hibernate.cfg.Configuration getConfigurationInputStream
-INFO: HHH000040: Configuration resource: hibernate.cfg.xml
-Oct 18, 2020 6:16:15 PM org.hibernate.cfg.Configuration doConfigure
-INFO: HHH000041: Configured SessionFactory: null
-Oct 18, 2020 6:16:15 PM org.hibernate.cfg.Configuration configure
-INFO: HHH000043: Configuring from resource: hibernate.cfg.xml
-Oct 18, 2020 6:16:15 PM org.hibernate.cfg.Configuration getConfigurationInputStream
-INFO: HHH000040: Configuration resource: hibernate.cfg.xml
-Oct 18, 2020 6:16:15 PM org.hibernate.cfg.Configuration doConfigure
-INFO: HHH000041: Configured SessionFactory: null
-Sun Oct 18 18:16:15 EDT 2020 WARN: Establishing SSL connection without server&apos;s identity verification is not recommended. According to MySQL 5.5.45+, 5.6.26+ and 5.7.6+ requirements SSL connection must be established by default if explicit option isn&apos;t set. For compliance with existing applications not using SSL the verifyServerCertificate property is set to &apos;false&apos;. You need either to explicitly disable SSL by setting useSSL=false, or set useSSL=true and provide truststore for server certificate verification.
-</system-err>
   </testcase>
-  <testcase classname="com.origamisoftware.teach.advanced.services.DatabaseStockServiceTest" name="testGetQuoteWithinRange" time="0.011">
-    <error message="Could not initialize db because of:stockquote-week5-solved\src\main\resources\sql\stocks_db_initialization.sql (The system cannot find the path specified)" type="com.origamisoftware.teach.advanced.util.DatabaseInitializationException">com.origamisoftware.teach.advanced.util.DatabaseInitializationException: Could not initialize db because of:stockquote-week5-solved\src\main\resources\sql\stocks_db_initialization.sql (The system cannot find the path specified)
-	at com.origamisoftware.teach.advanced.util.DatabaseUtils.initializeDatabase(DatabaseUtils.java:105)
-	at com.origamisoftware.teach.advanced.services.DatabaseStockServiceTest.setUp(DatabaseStockServiceTest.java:32)
+  <testcase classname="com.origamisoftware.teach.advanced.util.XMLUtilsTest" name="testUnmarshallStocks" time="0">
+    <error message="stockquote-week5-solved\src\main\resources\xml\stock_info.xml" type="java.nio.file.NoSuchFileException">java.nio.file.NoSuchFileException: stockquote-week5-solved\src\main\resources\xml\stock_info.xml
+	at java.base/sun.nio.fs.WindowsException.translateToIOException(WindowsException.java:85)
+	at java.base/sun.nio.fs.WindowsException.rethrowAsIOException(WindowsException.java:103)
+	at java.base/sun.nio.fs.WindowsException.rethrowAsIOException(WindowsException.java:108)
+	at java.base/sun.nio.fs.WindowsFileSystemProvider.newByteChannel(WindowsFileSystemProvider.java:235)
+	at java.base/java.nio.file.Files.newByteChannel(Files.java:375)
+	at java.base/java.nio.file.Files.newByteChannel(Files.java:426)
+	at java.base/java.nio.file.Files.readAllBytes(Files.java:3272)
+	at java.base/java.nio.file.Files.readString(Files.java:3350)
+	at com.origamisoftware.teach.advanced.util.XMLUtilsTest.testUnmarshallStocks(XMLUtilsTest.java:76)
 	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
 	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
 	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
@@ -139,7 +120,7 @@ Sun Oct 18 18:16:15 EDT 2020 WARN: Establishing SSL connection without server&ap
 	at org.junit.runners.model.FrameworkMethod$1.runReflectiveCall(FrameworkMethod.java:45)
 	at org.junit.internal.runners.model.ReflectiveCallable.run(ReflectiveCallable.java:15)
 	at org.junit.runners.model.FrameworkMethod.invokeExplosively(FrameworkMethod.java:42)
-	at org.junit.internal.runners.statements.RunBefores.evaluate(RunBefores.java:27)
+	at org.junit.internal.runners.statements.InvokeMethod.evaluate(InvokeMethod.java:20)
 	at org.junit.runners.ParentRunner.runLeaf(ParentRunner.java:263)
 	at org.junit.runners.BlockJUnit4ClassRunner.runChild(BlockJUnit4ClassRunner.java:68)
 	at org.junit.runners.BlockJUnit4ClassRunner.runChild(BlockJUnit4ClassRunner.java:47)
@@ -161,45 +142,19 @@ Sun Oct 18 18:16:15 EDT 2020 WARN: Establishing SSL connection without server&ap
 	at org.apache.maven.surefire.booter.ProviderFactory.invokeProvider(ProviderFactory.java:85)
 	at org.apache.maven.surefire.booter.ForkedBooter.runSuitesInProcess(ForkedBooter.java:115)
 	at org.apache.maven.surefire.booter.ForkedBooter.main(ForkedBooter.java:75)
-Caused by: java.io.FileNotFoundException: stockquote-week5-solved\src\main\resources\sql\stocks_db_initialization.sql (The system cannot find the path specified)
-	at java.base/java.io.FileInputStream.open0(Native Method)
-	at java.base/java.io.FileInputStream.open(FileInputStream.java:212)
-	at java.base/java.io.FileInputStream.&lt;init&gt;(FileInputStream.java:154)
-	at java.base/java.io.FileInputStream.&lt;init&gt;(FileInputStream.java:109)
-	at com.origamisoftware.teach.advanced.util.DatabaseUtils.initializeDatabase(DatabaseUtils.java:87)
-	... 30 more
 </error>
-    <system-err>Oct 18, 2020 6:16:15 PM org.hibernate.cfg.Configuration configure
-INFO: HHH000043: Configuring from resource: hibernate.cfg.xml
-Oct 18, 2020 6:16:15 PM org.hibernate.cfg.Configuration getConfigurationInputStream
-INFO: HHH000040: Configuration resource: hibernate.cfg.xml
-Oct 18, 2020 6:16:15 PM org.hibernate.cfg.Configuration doConfigure
-INFO: HHH000041: Configured SessionFactory: null
-Oct 18, 2020 6:16:15 PM org.hibernate.cfg.Configuration configure
-INFO: HHH000043: Configuring from resource: hibernate.cfg.xml
-Oct 18, 2020 6:16:15 PM org.hibernate.cfg.Configuration getConfigurationInputStream
-INFO: HHH000040: Configuration resource: hibernate.cfg.xml
-Oct 18, 2020 6:16:15 PM org.hibernate.cfg.Configuration doConfigure
-INFO: HHH000041: Configured SessionFactory: null
-Oct 18, 2020 6:16:15 PM org.hibernate.cfg.Configuration configure
-INFO: HHH000043: Configuring from resource: hibernate.cfg.xml
-Oct 18, 2020 6:16:15 PM org.hibernate.cfg.Configuration getConfigurationInputStream
-INFO: HHH000040: Configuration resource: hibernate.cfg.xml
-Oct 18, 2020 6:16:15 PM org.hibernate.cfg.Configuration doConfigure
-INFO: HHH000041: Configured SessionFactory: null
-Oct 18, 2020 6:16:15 PM org.hibernate.cfg.Configuration configure
-INFO: HHH000043: Configuring from resource: hibernate.cfg.xml
-Oct 18, 2020 6:16:15 PM org.hibernate.cfg.Configuration getConfigurationInputStream
-INFO: HHH000040: Configuration resource: hibernate.cfg.xml
-Oct 18, 2020 6:16:15 PM org.hibernate.cfg.Configuration doConfigure
-INFO: HHH000041: Configured SessionFactory: null
-Sun Oct 18 18:16:15 EDT 2020 WARN: Establishing SSL connection without server&apos;s identity verification is not recommended. According to MySQL 5.5.45+, 5.6.26+ and 5.7.6+ requirements SSL connection must be established by default if explicit option isn&apos;t set. For compliance with existing applications not using SSL the verifyServerCertificate property is set to &apos;false&apos;. You need either to explicitly disable SSL by setting useSSL=false, or set useSSL=true and provide truststore for server certificate verification.
-</system-err>
   </testcase>
-  <testcase classname="com.origamisoftware.teach.advanced.services.DatabaseStockServiceTest" name="testGetQuote" time="0.01">
-    <error message="Could not initialize db because of:stockquote-week5-solved\src\main\resources\sql\stocks_db_initialization.sql (The system cannot find the path specified)" type="com.origamisoftware.teach.advanced.util.DatabaseInitializationException">com.origamisoftware.teach.advanced.util.DatabaseInitializationException: Could not initialize db because of:stockquote-week5-solved\src\main\resources\sql\stocks_db_initialization.sql (The system cannot find the path specified)
-	at com.origamisoftware.teach.advanced.util.DatabaseUtils.initializeDatabase(DatabaseUtils.java:105)
-	at com.origamisoftware.teach.advanced.services.DatabaseStockServiceTest.setUp(DatabaseStockServiceTest.java:32)
+  <testcase classname="com.origamisoftware.teach.advanced.util.XMLUtilsTest" name="testStocksMarshall" time="0">
+    <error message="stockquote-week5-solved\src\main\resources\xml\stock_info.xml" type="java.nio.file.NoSuchFileException">java.nio.file.NoSuchFileException: stockquote-week5-solved\src\main\resources\xml\stock_info.xml
+	at java.base/sun.nio.fs.WindowsException.translateToIOException(WindowsException.java:85)
+	at java.base/sun.nio.fs.WindowsException.rethrowAsIOException(WindowsException.java:103)
+	at java.base/sun.nio.fs.WindowsException.rethrowAsIOException(WindowsException.java:108)
+	at java.base/sun.nio.fs.WindowsFileSystemProvider.newByteChannel(WindowsFileSystemProvider.java:235)
+	at java.base/java.nio.file.Files.newByteChannel(Files.java:375)
+	at java.base/java.nio.file.Files.newByteChannel(Files.java:426)
+	at java.base/java.nio.file.Files.readAllBytes(Files.java:3272)
+	at java.base/java.nio.file.Files.readString(Files.java:3350)
+	at com.origamisoftware.teach.advanced.util.XMLUtilsTest.testStocksMarshall(XMLUtilsTest.java:90)
 	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
 	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
 	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
@@ -207,7 +162,7 @@ Sun Oct 18 18:16:15 EDT 2020 WARN: Establishing SSL connection without server&ap
 	at org.junit.runners.model.FrameworkMethod$1.runReflectiveCall(FrameworkMethod.java:45)
 	at org.junit.internal.runners.model.ReflectiveCallable.run(ReflectiveCallable.java:15)
 	at org.junit.runners.model.FrameworkMethod.invokeExplosively(FrameworkMethod.java:42)
-	at org.junit.internal.runners.statements.RunBefores.evaluate(RunBefores.java:27)
+	at org.junit.internal.runners.statements.InvokeMethod.evaluate(InvokeMethod.java:20)
 	at org.junit.runners.ParentRunner.runLeaf(ParentRunner.java:263)
 	at org.junit.runners.BlockJUnit4ClassRunner.runChild(BlockJUnit4ClassRunner.java:68)
 	at org.junit.runners.BlockJUnit4ClassRunner.runChild(BlockJUnit4ClassRunner.java:47)
@@ -229,39 +184,6 @@ Sun Oct 18 18:16:15 EDT 2020 WARN: Establishing SSL connection without server&ap
 	at org.apache.maven.surefire.booter.ProviderFactory.invokeProvider(ProviderFactory.java:85)
 	at org.apache.maven.surefire.booter.ForkedBooter.runSuitesInProcess(ForkedBooter.java:115)
 	at org.apache.maven.surefire.booter.ForkedBooter.main(ForkedBooter.java:75)
-Caused by: java.io.FileNotFoundException: stockquote-week5-solved\src\main\resources\sql\stocks_db_initialization.sql (The system cannot find the path specified)
-	at java.base/java.io.FileInputStream.open0(Native Method)
-	at java.base/java.io.FileInputStream.open(FileInputStream.java:212)
-	at java.base/java.io.FileInputStream.&lt;init&gt;(FileInputStream.java:154)
-	at java.base/java.io.FileInputStream.&lt;init&gt;(FileInputStream.java:109)
-	at com.origamisoftware.teach.advanced.util.DatabaseUtils.initializeDatabase(DatabaseUtils.java:87)
-	... 30 more
 </error>
-    <system-err>Oct 18, 2020 6:16:15 PM org.hibernate.cfg.Configuration configure
-INFO: HHH000043: Configuring from resource: hibernate.cfg.xml
-Oct 18, 2020 6:16:15 PM org.hibernate.cfg.Configuration getConfigurationInputStream
-INFO: HHH000040: Configuration resource: hibernate.cfg.xml
-Oct 18, 2020 6:16:15 PM org.hibernate.cfg.Configuration doConfigure
-INFO: HHH000041: Configured SessionFactory: null
-Oct 18, 2020 6:16:15 PM org.hibernate.cfg.Configuration configure
-INFO: HHH000043: Configuring from resource: hibernate.cfg.xml
-Oct 18, 2020 6:16:15 PM org.hibernate.cfg.Configuration getConfigurationInputStream
-INFO: HHH000040: Configuration resource: hibernate.cfg.xml
-Oct 18, 2020 6:16:15 PM org.hibernate.cfg.Configuration doConfigure
-INFO: HHH000041: Configured SessionFactory: null
-Oct 18, 2020 6:16:15 PM org.hibernate.cfg.Configuration configure
-INFO: HHH000043: Configuring from resource: hibernate.cfg.xml
-Oct 18, 2020 6:16:15 PM org.hibernate.cfg.Configuration getConfigurationInputStream
-INFO: HHH000040: Configuration resource: hibernate.cfg.xml
-Oct 18, 2020 6:16:15 PM org.hibernate.cfg.Configuration doConfigure
-INFO: HHH000041: Configured SessionFactory: null
-Oct 18, 2020 6:16:15 PM org.hibernate.cfg.Configuration configure
-INFO: HHH000043: Configuring from resource: hibernate.cfg.xml
-Oct 18, 2020 6:16:15 PM org.hibernate.cfg.Configuration getConfigurationInputStream
-INFO: HHH000040: Configuration resource: hibernate.cfg.xml
-Oct 18, 2020 6:16:15 PM org.hibernate.cfg.Configuration doConfigure
-INFO: HHH000041: Configured SessionFactory: null
-Sun Oct 18 18:16:15 EDT 2020 WARN: Establishing SSL connection without server&apos;s identity verification is not recommended. According to MySQL 5.5.45+, 5.6.26+ and 5.7.6+ requirements SSL connection must be established by default if explicit option isn&apos;t set. For compliance with existing applications not using SSL the verifyServerCertificate property is set to &apos;false&apos;. You need either to explicitly disable SSL by setting useSSL=false, or set useSSL=true and provide truststore for server certificate verification.
-</system-err>
   </testcase>
 </testsuite>

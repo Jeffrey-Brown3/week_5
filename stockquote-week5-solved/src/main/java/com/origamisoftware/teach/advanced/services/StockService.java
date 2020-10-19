@@ -2,6 +2,7 @@ package com.origamisoftware.teach.advanced.services;
 
 import com.origamisoftware.teach.advanced.model.StockQuote;
 import com.origamisoftware.teach.advanced.util.Interval;
+import com.origamisoftware.teach.advanced.xml.Stock;
 
 import java.util.Calendar;
 import java.util.List;
@@ -10,6 +11,7 @@ import java.util.List;
  * This API describes how to get stock data from an external resource.
  */
 public interface StockService {
+
 
 
     /**
@@ -23,6 +25,17 @@ public interface StockService {
      *                               error.
      */
     StockQuote getQuote(String symbol) throws StockServiceException;
+
+    /**
+     * Add a new quote
+     *
+     * @param quote a quote object to either update or create
+     * @throws StockServiceException if a service can not read or write the requested data
+     *                               or otherwise perform the requested operation.
+     */
+    static void addXMLQuote(Stock quote) throws StockServiceException {
+
+    }
 
     /**
      * Get a historical list of stock quotes for the provide symbol

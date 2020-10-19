@@ -1,11 +1,18 @@
 -------------------------------------------------------------------------------
-Test set: com.origamisoftware.teach.advanced.services.DatabaseStockServiceTest
+Test set: com.origamisoftware.teach.advanced.util.XMLUtilsTest
 -------------------------------------------------------------------------------
-Tests run: 3, Failures: 0, Errors: 3, Skipped: 0, Time elapsed: 0.032 sec <<< FAILURE!
-testGetQuoteWithIntervalBasic(com.origamisoftware.teach.advanced.services.DatabaseStockServiceTest)  Time elapsed: 0.011 sec  <<< ERROR!
-com.origamisoftware.teach.advanced.util.DatabaseInitializationException: Could not initialize db because of:stockquote-week5-solved\src\main\resources\sql\stocks_db_initialization.sql (The system cannot find the path specified)
-	at com.origamisoftware.teach.advanced.util.DatabaseUtils.initializeDatabase(DatabaseUtils.java:105)
-	at com.origamisoftware.teach.advanced.services.DatabaseStockServiceTest.setUp(DatabaseStockServiceTest.java:32)
+Tests run: 3, Failures: 0, Errors: 3, Skipped: 0, Time elapsed: 0.002 sec <<< FAILURE!
+testUnmarshallStocksWithSchemaValidation(com.origamisoftware.teach.advanced.util.XMLUtilsTest)  Time elapsed: 0 sec  <<< ERROR!
+java.nio.file.NoSuchFileException: stockquote-week5-solved\src\main\resources\xml\stock_info.xml
+	at java.base/sun.nio.fs.WindowsException.translateToIOException(WindowsException.java:85)
+	at java.base/sun.nio.fs.WindowsException.rethrowAsIOException(WindowsException.java:103)
+	at java.base/sun.nio.fs.WindowsException.rethrowAsIOException(WindowsException.java:108)
+	at java.base/sun.nio.fs.WindowsFileSystemProvider.newByteChannel(WindowsFileSystemProvider.java:235)
+	at java.base/java.nio.file.Files.newByteChannel(Files.java:375)
+	at java.base/java.nio.file.Files.newByteChannel(Files.java:426)
+	at java.base/java.nio.file.Files.readAllBytes(Files.java:3272)
+	at java.base/java.nio.file.Files.readString(Files.java:3350)
+	at com.origamisoftware.teach.advanced.util.XMLUtilsTest.testUnmarshallStocksWithSchemaValidation(XMLUtilsTest.java:83)
 	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
 	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
 	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
@@ -13,7 +20,7 @@ com.origamisoftware.teach.advanced.util.DatabaseInitializationException: Could n
 	at org.junit.runners.model.FrameworkMethod$1.runReflectiveCall(FrameworkMethod.java:45)
 	at org.junit.internal.runners.model.ReflectiveCallable.run(ReflectiveCallable.java:15)
 	at org.junit.runners.model.FrameworkMethod.invokeExplosively(FrameworkMethod.java:42)
-	at org.junit.internal.runners.statements.RunBefores.evaluate(RunBefores.java:27)
+	at org.junit.internal.runners.statements.InvokeMethod.evaluate(InvokeMethod.java:20)
 	at org.junit.runners.ParentRunner.runLeaf(ParentRunner.java:263)
 	at org.junit.runners.BlockJUnit4ClassRunner.runChild(BlockJUnit4ClassRunner.java:68)
 	at org.junit.runners.BlockJUnit4ClassRunner.runChild(BlockJUnit4ClassRunner.java:47)
@@ -35,18 +42,18 @@ com.origamisoftware.teach.advanced.util.DatabaseInitializationException: Could n
 	at org.apache.maven.surefire.booter.ProviderFactory.invokeProvider(ProviderFactory.java:85)
 	at org.apache.maven.surefire.booter.ForkedBooter.runSuitesInProcess(ForkedBooter.java:115)
 	at org.apache.maven.surefire.booter.ForkedBooter.main(ForkedBooter.java:75)
-Caused by: java.io.FileNotFoundException: stockquote-week5-solved\src\main\resources\sql\stocks_db_initialization.sql (The system cannot find the path specified)
-	at java.base/java.io.FileInputStream.open0(Native Method)
-	at java.base/java.io.FileInputStream.open(FileInputStream.java:212)
-	at java.base/java.io.FileInputStream.<init>(FileInputStream.java:154)
-	at java.base/java.io.FileInputStream.<init>(FileInputStream.java:109)
-	at com.origamisoftware.teach.advanced.util.DatabaseUtils.initializeDatabase(DatabaseUtils.java:87)
-	... 30 more
 
-testGetQuoteWithinRange(com.origamisoftware.teach.advanced.services.DatabaseStockServiceTest)  Time elapsed: 0.011 sec  <<< ERROR!
-com.origamisoftware.teach.advanced.util.DatabaseInitializationException: Could not initialize db because of:stockquote-week5-solved\src\main\resources\sql\stocks_db_initialization.sql (The system cannot find the path specified)
-	at com.origamisoftware.teach.advanced.util.DatabaseUtils.initializeDatabase(DatabaseUtils.java:105)
-	at com.origamisoftware.teach.advanced.services.DatabaseStockServiceTest.setUp(DatabaseStockServiceTest.java:32)
+testUnmarshallStocks(com.origamisoftware.teach.advanced.util.XMLUtilsTest)  Time elapsed: 0 sec  <<< ERROR!
+java.nio.file.NoSuchFileException: stockquote-week5-solved\src\main\resources\xml\stock_info.xml
+	at java.base/sun.nio.fs.WindowsException.translateToIOException(WindowsException.java:85)
+	at java.base/sun.nio.fs.WindowsException.rethrowAsIOException(WindowsException.java:103)
+	at java.base/sun.nio.fs.WindowsException.rethrowAsIOException(WindowsException.java:108)
+	at java.base/sun.nio.fs.WindowsFileSystemProvider.newByteChannel(WindowsFileSystemProvider.java:235)
+	at java.base/java.nio.file.Files.newByteChannel(Files.java:375)
+	at java.base/java.nio.file.Files.newByteChannel(Files.java:426)
+	at java.base/java.nio.file.Files.readAllBytes(Files.java:3272)
+	at java.base/java.nio.file.Files.readString(Files.java:3350)
+	at com.origamisoftware.teach.advanced.util.XMLUtilsTest.testUnmarshallStocks(XMLUtilsTest.java:76)
 	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
 	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
 	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
@@ -54,7 +61,7 @@ com.origamisoftware.teach.advanced.util.DatabaseInitializationException: Could n
 	at org.junit.runners.model.FrameworkMethod$1.runReflectiveCall(FrameworkMethod.java:45)
 	at org.junit.internal.runners.model.ReflectiveCallable.run(ReflectiveCallable.java:15)
 	at org.junit.runners.model.FrameworkMethod.invokeExplosively(FrameworkMethod.java:42)
-	at org.junit.internal.runners.statements.RunBefores.evaluate(RunBefores.java:27)
+	at org.junit.internal.runners.statements.InvokeMethod.evaluate(InvokeMethod.java:20)
 	at org.junit.runners.ParentRunner.runLeaf(ParentRunner.java:263)
 	at org.junit.runners.BlockJUnit4ClassRunner.runChild(BlockJUnit4ClassRunner.java:68)
 	at org.junit.runners.BlockJUnit4ClassRunner.runChild(BlockJUnit4ClassRunner.java:47)
@@ -76,18 +83,18 @@ com.origamisoftware.teach.advanced.util.DatabaseInitializationException: Could n
 	at org.apache.maven.surefire.booter.ProviderFactory.invokeProvider(ProviderFactory.java:85)
 	at org.apache.maven.surefire.booter.ForkedBooter.runSuitesInProcess(ForkedBooter.java:115)
 	at org.apache.maven.surefire.booter.ForkedBooter.main(ForkedBooter.java:75)
-Caused by: java.io.FileNotFoundException: stockquote-week5-solved\src\main\resources\sql\stocks_db_initialization.sql (The system cannot find the path specified)
-	at java.base/java.io.FileInputStream.open0(Native Method)
-	at java.base/java.io.FileInputStream.open(FileInputStream.java:212)
-	at java.base/java.io.FileInputStream.<init>(FileInputStream.java:154)
-	at java.base/java.io.FileInputStream.<init>(FileInputStream.java:109)
-	at com.origamisoftware.teach.advanced.util.DatabaseUtils.initializeDatabase(DatabaseUtils.java:87)
-	... 30 more
 
-testGetQuote(com.origamisoftware.teach.advanced.services.DatabaseStockServiceTest)  Time elapsed: 0.01 sec  <<< ERROR!
-com.origamisoftware.teach.advanced.util.DatabaseInitializationException: Could not initialize db because of:stockquote-week5-solved\src\main\resources\sql\stocks_db_initialization.sql (The system cannot find the path specified)
-	at com.origamisoftware.teach.advanced.util.DatabaseUtils.initializeDatabase(DatabaseUtils.java:105)
-	at com.origamisoftware.teach.advanced.services.DatabaseStockServiceTest.setUp(DatabaseStockServiceTest.java:32)
+testStocksMarshall(com.origamisoftware.teach.advanced.util.XMLUtilsTest)  Time elapsed: 0 sec  <<< ERROR!
+java.nio.file.NoSuchFileException: stockquote-week5-solved\src\main\resources\xml\stock_info.xml
+	at java.base/sun.nio.fs.WindowsException.translateToIOException(WindowsException.java:85)
+	at java.base/sun.nio.fs.WindowsException.rethrowAsIOException(WindowsException.java:103)
+	at java.base/sun.nio.fs.WindowsException.rethrowAsIOException(WindowsException.java:108)
+	at java.base/sun.nio.fs.WindowsFileSystemProvider.newByteChannel(WindowsFileSystemProvider.java:235)
+	at java.base/java.nio.file.Files.newByteChannel(Files.java:375)
+	at java.base/java.nio.file.Files.newByteChannel(Files.java:426)
+	at java.base/java.nio.file.Files.readAllBytes(Files.java:3272)
+	at java.base/java.nio.file.Files.readString(Files.java:3350)
+	at com.origamisoftware.teach.advanced.util.XMLUtilsTest.testStocksMarshall(XMLUtilsTest.java:90)
 	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
 	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
 	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
@@ -95,7 +102,7 @@ com.origamisoftware.teach.advanced.util.DatabaseInitializationException: Could n
 	at org.junit.runners.model.FrameworkMethod$1.runReflectiveCall(FrameworkMethod.java:45)
 	at org.junit.internal.runners.model.ReflectiveCallable.run(ReflectiveCallable.java:15)
 	at org.junit.runners.model.FrameworkMethod.invokeExplosively(FrameworkMethod.java:42)
-	at org.junit.internal.runners.statements.RunBefores.evaluate(RunBefores.java:27)
+	at org.junit.internal.runners.statements.InvokeMethod.evaluate(InvokeMethod.java:20)
 	at org.junit.runners.ParentRunner.runLeaf(ParentRunner.java:263)
 	at org.junit.runners.BlockJUnit4ClassRunner.runChild(BlockJUnit4ClassRunner.java:68)
 	at org.junit.runners.BlockJUnit4ClassRunner.runChild(BlockJUnit4ClassRunner.java:47)
@@ -117,11 +124,4 @@ com.origamisoftware.teach.advanced.util.DatabaseInitializationException: Could n
 	at org.apache.maven.surefire.booter.ProviderFactory.invokeProvider(ProviderFactory.java:85)
 	at org.apache.maven.surefire.booter.ForkedBooter.runSuitesInProcess(ForkedBooter.java:115)
 	at org.apache.maven.surefire.booter.ForkedBooter.main(ForkedBooter.java:75)
-Caused by: java.io.FileNotFoundException: stockquote-week5-solved\src\main\resources\sql\stocks_db_initialization.sql (The system cannot find the path specified)
-	at java.base/java.io.FileInputStream.open0(Native Method)
-	at java.base/java.io.FileInputStream.open(FileInputStream.java:212)
-	at java.base/java.io.FileInputStream.<init>(FileInputStream.java:154)
-	at java.base/java.io.FileInputStream.<init>(FileInputStream.java:109)
-	at com.origamisoftware.teach.advanced.util.DatabaseUtils.initializeDatabase(DatabaseUtils.java:87)
-	... 30 more
 

@@ -1,5 +1,7 @@
 package com.origamisoftware.teach.advanced.util;
 
+import org.hibernate.Session;
+import org.hibernate.SessionFactory;
 import org.junit.Test;
 
 import java.sql.Connection;
@@ -35,6 +37,13 @@ public class DatabaseUtilsTest {
         Statement statement = connection.createStatement();
         boolean execute = statement.execute("select * from quotes");
         assertTrue("verify that we can execute a statement",execute);
+    }
+
+    @Test
+    public void testGetSessionFactory() throws Exception {
+        SessionFactory sessionFactory = DatabaseUtils.getSessionFactory();
+        Session session = sessionFactory.openSession();
+        session.close();
     }
 
 }

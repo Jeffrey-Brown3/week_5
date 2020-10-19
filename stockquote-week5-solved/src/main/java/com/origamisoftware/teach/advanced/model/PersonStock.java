@@ -1,5 +1,7 @@
 package com.origamisoftware.teach.advanced.model;
 
+import com.origamisoftware.teach.advanced.model.database.DatabasesAccessObject;
+
 import javax.persistence.*;
 
 /**
@@ -7,7 +9,7 @@ import javax.persistence.*;
  */
 @Entity
 @Table(name = "person_stock", catalog = "stocks")
-public class PersonStock {
+public class PersonStock implements DatabasesAccessObject {
     private int id;
     private Person person;
     private Stock stock;

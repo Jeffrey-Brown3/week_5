@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" ?>
-<testsuite tests="3" failures="0" name="com.origamisoftware.teach.advanced.apps.stockquote.BasicStockQuoteApplicationTest" time="0.135" errors="0" skipped="0">
+<testsuite tests="3" failures="0" name="com.origamisoftware.teach.advanced.apps.stockquote.BasicStockQuoteApplicationTest" time="0.133" errors="0" skipped="0">
   <properties>
     <property name="java.runtime.name" value="Java(TM) SE Runtime Environment"/>
     <property name="java.vm.version" value="14.0.2+12-46"/>
@@ -60,7 +60,7 @@
     <property name="sun.stdout.encoding" value="cp437"/>
     <property name="sun.cpu.isalist" value="amd64"/>
   </properties>
-  <testcase classname="com.origamisoftware.teach.advanced.apps.stockquote.BasicStockQuoteApplicationTest" name="testValidConstruction" time="0.097"/>
-  <testcase classname="com.origamisoftware.teach.advanced.apps.stockquote.BasicStockQuoteApplicationTest" name="testDisplayResults" time="0.037"/>
+  <testcase classname="com.origamisoftware.teach.advanced.apps.stockquote.BasicStockQuoteApplicationTest" name="testValidConstruction" time="0.094"/>
+  <testcase classname="com.origamisoftware.teach.advanced.apps.stockquote.BasicStockQuoteApplicationTest" name="testDisplayResults" time="0.038"/>
   <testcase classname="com.origamisoftware.teach.advanced.apps.stockquote.BasicStockQuoteApplicationTest" name="testMainNegative" time="0.001"/>
 </testsuite>

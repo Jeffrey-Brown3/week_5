@@ -13,12 +13,17 @@ com\origamisoftware\teach\advanced\model\Person.class
 com\origamisoftware\teach\advanced\services\StockService.class
 com\origamisoftware\teach\advanced\apps\stockquote\BasicStockQuoteApplication$ProgramTerminationStatusEnum.class
 com\origamisoftware\teach\advanced\services\DatabaseStockService.class
+com\origamisoftware\teach\advanced\util\InvalidXMLException.class
 com\origamisoftware\teach\advanced\services\PersonServiceException.class
 com\origamisoftware\teach\advanced\util\ProgramConfiguration.class
+com\origamisoftware\teach\advanced\xml\XMLDomainObject.class
 com\origamisoftware\teach\advanced\util\DatabaseUtils.class
+com\origamisoftware\teach\advanced\xml\Stock.class
 com\origamisoftware\teach\advanced\util\DatabaseInitializationException.class
 com\origamisoftware\teach\advanced\model\StockQuote.class
 com\origamisoftware\teach\advanced\util\DatabaseConnectionException.class
+com\origamisoftware\teach\advanced\util\XMLUtils.class
+com\origamisoftware\teach\advanced\xml\Stocks.class
 com\origamisoftware\teach\advanced\model\Stock.class
 com\origamisoftware\teach\advanced\services\PersonService.class
 com\origamisoftware\teach\advanced\services\DatabasePersonsService.class

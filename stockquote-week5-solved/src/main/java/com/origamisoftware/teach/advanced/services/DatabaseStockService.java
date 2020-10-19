@@ -1,21 +1,23 @@
 package com.origamisoftware.teach.advanced.services;
 
-import com.origamisoftware.teach.advanced.model.StockData;
 import com.origamisoftware.teach.advanced.model.StockQuote;
-import com.origamisoftware.teach.advanced.util.DatabaseConnectionException;
+import com.origamisoftware.teach.advanced.model.database.QuoteDAO;
+import com.origamisoftware.teach.advanced.model.database.StockSymbolDAO;
 import com.origamisoftware.teach.advanced.util.DatabaseUtils;
 import com.origamisoftware.teach.advanced.util.Interval;
+import com.origamisoftware.teach.advanced.xml.Stock;
+import org.hibernate.Criteria;
+import org.hibernate.HibernateException;
+import org.hibernate.Session;
+import org.hibernate.Transaction;
+import org.hibernate.criterion.Restrictions;
+import org.hibernate.exception.ConstraintViolationException;
 
 import java.math.BigDecimal;
-import java.sql.Connection;
-import java.sql.Date;
-import java.sql.ResultSet;
-import java.sql.SQLException;
-import java.sql.Statement;
 import java.sql.Timestamp;
-import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Calendar;
+import java.util.Date;
 import java.util.List;
 
 /**
@@ -23,6 +25,38 @@ import java.util.List;
  * stock data from a database.
  */
 class DatabaseStockService implements StockService {
+
+    /**
+     * Return the current price for a share of stock  for the given symbol
+     *
+     * @param stock the stock symbol of the company you want a quote for.
+     *               e.g. APPL for APPLE
+     * @return a  <CODE>BigDecimal</CODE> instance
+     * @throws StockServiceException if using the service generates an exception.
+     *                               If this happens, trying the service may work, depending on the actual cause of the
+     *                               error.
+     */
+
+    public StockQuote getQuote(Stock stock) throws StockServiceException {
+        StockQuote stockQuote;
+        String symbol = stock.getSymbol();
+        StockSymbolDAO stockSymbolDAO = DatabaseUtils.findUniqueResultBy("symbol", symbol, StockSymbolDAO.class, true);
+        List<QuoteDAO> quotes = DatabaseUtils.findResultsBy("stockSymbolBySymbolId", stockSymbolDAO, QuoteDAO.class, true);
+
+        if (quotes.isEmpty()) {
+            throw new StockServiceException("Could not find any stock quotes for: " + symbol);
+        }
+
+        QuoteDAO quoteDAO = quotes.get(0);
+        // pojo conversion
+        long time = quoteDAO.getTime().getTime();
+        Calendar calendar = Calendar.getInstance();
+        calendar.setTimeInMillis(time);
+        Date quoteTime = calendar.getTime();
+        stockQuote = new StockQuote(quoteDAO.getPrice(), quoteTime, stockSymbolDAO.getSymbol());
+
+        return stockQuote;
+    }
 
     /**
      * Return the current price for a share of stock  for the given symbol
@@ -36,29 +70,24 @@ class DatabaseStockService implements StockService {
      */
     @Override
     public StockQuote getQuote(String symbol) throws StockServiceException {
-        // todo - this is a pretty lame implementation why?
-        List<StockQuote> stockQuotes = null;
-        try {
-            Connection connection = DatabaseUtils.getConnection();
-            Statement statement = connection.createStatement();
-            String queryString = "select * from quotes where symbol = '" + symbol + "'";
+        StockQuote stockQuote;
 
-            ResultSet resultSet = statement.executeQuery(queryString);
-            stockQuotes = new ArrayList<>(resultSet.getFetchSize());
-            while (resultSet.next()) {
-                String symbolValue = resultSet.getString("symbol");
-                Date time = resultSet.getDate("time");
-                BigDecimal price = resultSet.getBigDecimal("price");
-                stockQuotes.add(new StockQuote(price, time, symbolValue));
-            }
+        StockSymbolDAO stockSymbolDAO = DatabaseUtils.findUniqueResultBy("symbol", symbol, StockSymbolDAO.class, true);
+        List<QuoteDAO> quotes = DatabaseUtils.findResultsBy("stockSymbolBySymbolId", stockSymbolDAO, QuoteDAO.class, true);
 
-        } catch (DatabaseConnectionException | SQLException exception) {
-            throw new StockServiceException(exception.getMessage(), exception);
+        if (quotes.isEmpty()) {
+            throw new StockServiceException("Could not find any stock quotes for: " + symbol);
         }
-        if (stockQuotes.isEmpty()) {
-            throw new StockServiceException("There is no stock data for:" + symbol);
-        }
-        return stockQuotes.get(0);
+
+        QuoteDAO quoteDAO = quotes.get(0);
+        // pojo conversion
+        long time = quoteDAO.getTime().getTime();
+        Calendar calendar = Calendar.getInstance();
+        calendar.setTimeInMillis(time);
+        Date quoteTime = calendar.getTime();
+        stockQuote = new StockQuote(quoteDAO.getPrice(), quoteTime, stockSymbolDAO.getSymbol());
+
+        return stockQuote;
     }
 
     /**
@@ -74,87 +103,196 @@ class DatabaseStockService implements StockService {
      *                               error.
      */
     @Override
-    public List<StockQuote> getQuote(String symbol, Calendar from, Calendar until, Interval interval) throws StockServiceException {
+    public List<StockQuote> getQuote(String symbol, Calendar from, Calendar until, Interval interval)
+            throws StockServiceException {
         List<StockQuote> stockQuotes = null;
+        Session session = null;
+        Transaction transaction = null;
+
         try {
-            Connection connection = DatabaseUtils.getConnection();
-            Statement statement = connection.createStatement();
-            SimpleDateFormat simpleDateFormat = new SimpleDateFormat(StockData.dateFormat);
-
-            String fromString = simpleDateFormat.format(from.getTime());
-            String untilString = simpleDateFormat.format(until.getTime());
-
-            String queryString = "select * from quotes where symbol = '" + symbol + "'"
-                    + "and time BETWEEN '" + fromString + "' and '" + untilString + "'";
-
-            ResultSet resultSet = statement.executeQuery(queryString);
-            stockQuotes = new ArrayList<>();
-            StockQuote previousStockQuote = null;
-
-            /**
-             *
-             * Here is the general idea behind filtering on interval.
-             * It is not perfect, it would be better to filter using SQL and let the DBMS to it,
-             * but this way will work OK for small or medium data sets, and since this class
-             * (90.303 - not this actual  Java class) is focused on Java and not SQL
-             * I thought this approach was appropriate.
-             *
-             * SIDE BAR:
-             *
-             * It also highlights a consistent tension which is the question of what should the
-             * DBMS be responsible for and what should the Java code be responsible. There is
-             * no one answer here as there are lots of factors to consider including:
-             *
-             * SQL compatibility (complex logic in the DBMS might not be portable to another DBMS)
-             *
-             * Where do you want your application's business logic to exist?
-             * In the DBMS only, in the Java code only? Spread out between the two?
-             * Keeping it in one place makes a lot more sense than spreading it out? But where is
-             * best - that depends on your application design, and capacity requirements, your teams'
-             * skill set (Do you have a lot of db experts on staff?) and whether or not DBMS vendor
-             * lock in is a concern or not.
-             *
-             * Performance and scalability
-             * DBMS intensive application will benefit from having the DBMS do the heavy data
-             * sorting.
-             *
-             * Ease of maintenance  and test
-             * This questions really relates to your teams' skill set.
-             *
-             */
-            Calendar calendar = Calendar.getInstance();
-            while (resultSet.next()) {
-                String symbolValue = resultSet.getString("symbol");
-                Timestamp timeStamp = resultSet.getTimestamp("time");
-                calendar.setTimeInMillis(timeStamp.getTime());
-                BigDecimal price = resultSet.getBigDecimal("price");
-                java.util.Date time = calendar.getTime();
-                StockQuote currentStockQuote = new StockQuote(price, time, symbolValue);
-
-                if (previousStockQuote == null) { // first time through always add stockquote
-
-                    stockQuotes.add(currentStockQuote);
-
-                } else if (isInterval(currentStockQuote.getDate(),
-                        interval,
-                        previousStockQuote.getDate())) {
-
-                    stockQuotes.add(currentStockQuote);
-                }
-
-                previousStockQuote = currentStockQuote;
+            StockSymbolDAO stockSymbolDAO = DatabaseUtils.findUniqueResultBy("symbol", symbol, StockSymbolDAO.class, true);
+            session = DatabaseUtils.getSessionFactory().openSession();
+            transaction = session.beginTransaction();
+            Timestamp fromTimeStamp = new Timestamp(from.getTimeInMillis());
+            Timestamp untilTimestamp = new Timestamp(until.getTimeInMillis());
+            Criteria criteria = session.createCriteria(QuoteDAO.class);
+            criteria.add(Restrictions.eq("stockSymbolBySymbolId", stockSymbolDAO));
+            criteria.add(Restrictions.between("time", fromTimeStamp,untilTimestamp));
+            List<QuoteDAO> quoteDAOs = (List<QuoteDAO>) criteria.list();
+            transaction.commit();
+            stockQuotes = new ArrayList<>(quoteDAOs.size());
+            // do within interval here.
+            for (QuoteDAO quoteDAO : quoteDAOs) {
+                Calendar calendar = Calendar.getInstance();
+                calendar.setTimeInMillis(quoteDAO.getTime().getTime());
+                stockQuotes.add(new StockQuote(quoteDAO.getPrice(),
+                        calendar.getTime(),
+                        quoteDAO.getStockSymbolBySymbolId().getSymbol()));
             }
+        } catch (HibernateException e)  {
+            if (transaction != null) {
+                transaction.rollback();
+            }
+            if (session != null) {
+                session.close();
+            }
+            session  = null;
 
-        } catch (DatabaseConnectionException | SQLException exception) {
-            throw new StockServiceException(exception.getMessage(), exception);
+        } finally {
+            if (session != null) {
+                session.close();
+            }
         }
-        if (stockQuotes.isEmpty()) {
-            throw new StockServiceException("There is no stock data for:" + symbol);
+
+        /**
+         SimpleDateFormat simpleDateFormat = new SimpleDateFormat(StockData.dateFormat);
+
+         String fromString = simpleDateFormat.format(from.getTime());
+         String untilString = simpleDateFormat.format(until.getTime());
+
+         String queryString = "select * from quote where symbol = '" + symbol + "'"
+         + "and time BETWEEN '" + fromString + "' and '" + untilString + "'";
+         **/
+
+        /**
+         *
+         * Here is the general idea behind filtering on interval.
+         * It is not perfect, it would be better to filter using SQL and let the DBMS to it,
+         * but this way will work OK for small or medium data sets, and since this class
+         * (90.303 - not this actual  Java class) is focused on Java and not SQL
+         * I thought this approach was appropriate.
+         *
+         * SIDE BAR:
+         *
+         * It also highlights a consistent tension which is the question of what should the
+         * DBMS be responsible for and what should the Java code be responsible. There is
+         * no one answer here as there are lots of factors to consider including:
+         *
+         * SQL compatibility (complex logic in the DBMS might not be portable to another DBMS)
+         *
+         * Where do you want your application's business logic to exist?
+         * In the DBMS only, in the Java code only? Spread out between the two?
+         * Keeping it in one place makes a lot more sense than spreading it out? But where is
+         * best - that depends on your application design, and capacity requirements, your teams'
+         * skill set (Do you have a lot of db experts on staff?) and whether or not DBMS vendor
+         * lock in is a concern or not.
+         *
+         * Performance and scalability
+         * DBMS intensive application will benefit from having the DBMS do the heavy data
+         * sorting.
+         *
+         * Ease of maintenance  and test
+         * This questions really relates to your teams' skill set.
+         *
+
+         Calendar calendar = Calendar.getInstance();
+         while (resultSet.next()) {
+         String symbolValue = resultSet.getString("symbol");
+         Timestamp timeStamp = resultSet.getTimestamp("time");
+         calendar.setTimeInMillis(timeStamp.getTime());
+         BigDecimal price = resultSet.getBigDecimal("price");
+         java.util.Date time = calendar.getTime();
+         StockQuote currentStockQuote = new StockQuote(price, time, symbolValue);
+
+         if (previousStockQuote == null) { // first time through always add stockquote
+
+         stockQuotes.add(currentStockQuote);
+
+         } else if (isInterval(currentStockQuote.getDate(),
+         interval,
+         previousStockQuote.getDate())) {
+
+         stockQuotes.add(currentStockQuote);
+         }
+
+         previousStockQuote = currentStockQuote;
+         }
+
+         } catch (DatabaseConnectionException | SQLException exception) {
+         throw new StockServiceException(exception.getMessage(), exception);
+         }
+         if (stockQuotes.isEmpty()) {
+         throw new StockServiceException("There is no stock data for:" + symbol);
+         }
+         */
+        return stockQuotes;
+    }
+
+    public List<StockQuote> getQuote(Stock stock, Calendar from, Calendar until, Interval interval)
+            throws StockServiceException {
+        List<StockQuote> stockQuotes = null;
+        Session session = null;
+        Transaction transaction = null;
+        String symbol = stock.getSymbol();
+
+        try {
+            StockSymbolDAO stockSymbolDAO = DatabaseUtils.findUniqueResultBy("symbol", symbol, StockSymbolDAO.class, true);
+            session = DatabaseUtils.getSessionFactory().openSession();
+            transaction = session.beginTransaction();
+            Timestamp fromTimeStamp = new Timestamp(from.getTimeInMillis());
+            Timestamp untilTimestamp = new Timestamp(until.getTimeInMillis());
+            Criteria criteria = session.createCriteria(QuoteDAO.class);
+            criteria.add(Restrictions.eq("stockSymbolBySymbolId", stockSymbolDAO));
+            criteria.add(Restrictions.between("time", fromTimeStamp,untilTimestamp));
+            List<QuoteDAO> quoteDAOs = (List<QuoteDAO>) criteria.list();
+            transaction.commit();
+            stockQuotes = new ArrayList<>(quoteDAOs.size());
+            // do within interval here.
+            for (QuoteDAO quoteDAO : quoteDAOs) {
+                Calendar calendar = Calendar.getInstance();
+                calendar.setTimeInMillis(quoteDAO.getTime().getTime());
+                stockQuotes.add(new StockQuote(quoteDAO.getPrice(),
+                        calendar.getTime(),
+                        quoteDAO.getStockSymbolBySymbolId().getSymbol()));
+            }
+        } catch (HibernateException e)  {
+            if (transaction != null) {
+                transaction.rollback();
+            }
+            if (session != null) {
+                session.close();
+            }
+            session  = null;
+
+        } finally {
+            if (session != null) {
+                session.close();
+            }
         }
 
         return stockQuotes;
     }
 
+
+
+    /**
+     * Add a new quote or update an existing quote's data
+     *
+     * @param quote a quote object to either update or create
+     */
+    public static void addXMLQuote(Stock quote) throws StockServiceException {
+        QuoteDAO quoteIn = new QuoteDAO();
+        quoteIn.setPrice(new BigDecimal(quote.getPrice()));
+        StockSymbolDAO symbol = new StockSymbolDAO();
+        symbol.setSymbol(quote.getSymbol());
+        quoteIn.setStockSymbolBySymbolId(symbol);
+        quoteIn.setTime(Timestamp.valueOf(quote.getTime()));
+        Session session = DatabaseUtils.getSessionFactory().openSession();
+        Transaction transaction = null;
+        try {
+            transaction = session.beginTransaction();
+            session.saveOrUpdate(quote);
+            transaction.commit();
+        } catch (HibernateException e) {
+            if (transaction != null && transaction.isActive()) {
+                transaction.rollback();  // close transaction
+            }
+        } finally {
+            if (transaction != null && transaction.isActive()) {
+                transaction.commit();
+            }
+        }
+    }
 
     /**
      * Returns true of the currentStockQuote has a date that is later by the time

@@ -60,8 +60,8 @@
     <property name="sun.stdout.encoding" value="cp437"/>
     <property name="sun.cpu.isalist" value="amd64"/>
   </properties>
-  <testcase classname="com.origamisoftware.teach.advanced.model.PersonStockTest" name="testEquals" time="0"/>
   <testcase classname="com.origamisoftware.teach.advanced.model.PersonStockTest" name="testToString" time="0"/>
+  <testcase classname="com.origamisoftware.teach.advanced.model.PersonStockTest" name="testEquals" time="0"/>
   <testcase classname="com.origamisoftware.teach.advanced.model.PersonStockTest" name="testPersonHobbiesGetterAndSetters" time="0"/>
   <testcase classname="com.origamisoftware.teach.advanced.model.PersonStockTest" name="testEqualsNegativeDifferentPerson" time="0"/>
 </testsuite>

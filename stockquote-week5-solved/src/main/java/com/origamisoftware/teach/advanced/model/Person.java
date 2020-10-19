@@ -1,5 +1,7 @@
 package com.origamisoftware.teach.advanced.model;
 
+import com.origamisoftware.teach.advanced.model.database.DatabasesAccessObject;
+
 import javax.persistence.*;
 import java.sql.Timestamp;
 
@@ -7,8 +9,8 @@ import java.sql.Timestamp;
  * Models the Person table
  */
 @Entity
-@Table(name="person")
-public class Person {
+@Table(name="person", catalog = "stocks")
+public class Person implements DatabasesAccessObject {
 
     private int id;
     private String firstName;

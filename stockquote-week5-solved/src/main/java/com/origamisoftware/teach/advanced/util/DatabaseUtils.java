@@ -27,7 +27,7 @@ import java.util.List;
  */
 public class DatabaseUtils {
 
-    public static final String initializationFile = "./src/main/sql/stocks_db_initialization.sql";
+    public static final String initializationFile = "stockquote-week5-solved/src/main/resources/sql/stocks_db_initialization.sql";
 
     private static SessionFactory sessionFactory;
     private static Configuration configuration;

@@ -2,6 +2,7 @@ package com.origamisoftware.teach.advanced.services;
 
 import com.origamisoftware.teach.advanced.model.StockQuote;
 import com.origamisoftware.teach.advanced.util.Interval;
+import com.origamisoftware.teach.advanced.xml.Stock;
 
 import java.math.BigDecimal;
 import java.util.ArrayList;
@@ -13,6 +14,11 @@ import java.util.List;
  * An implementation of the StockService that returns hard coded data.
  */
  class SimpleStockService implements StockService {
+
+
+    public StockQuote getQuote(Stock stock) throws StockServiceException {
+        return null;
+    }
 
     /**
      * Return the current price for a share of stock  for the given symbol
@@ -29,6 +35,7 @@ import java.util.List;
         // a dead simple implementation.
         return new StockQuote(new BigDecimal(100), Calendar.getInstance().getTime(), symbol);
     }
+
 
     /**
      * Get a historical list of stock quotes for the provide symbol

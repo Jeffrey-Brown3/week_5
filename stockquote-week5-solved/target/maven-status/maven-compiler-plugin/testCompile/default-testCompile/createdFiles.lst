@@ -4,6 +4,7 @@ com\origamisoftware\teach\advanced\model\StockQueryTest.class
 com\origamisoftware\teach\advanced\util\DatabaseUtilsTest.class
 com\origamisoftware\teach\advanced\services\ServiceFactoryTest.class
 com\origamisoftware\teach\advanced\model\PersonTest.class
+com\origamisoftware\teach\advanced\util\XMLUtilsTest.class
 com\origamisoftware\teach\advanced\apps\stockquote\BasicStockQuoteApplicationTest.class
 com\origamisoftware\teach\advanced\model\PersonStockTest.class
 com\origamisoftware\teach\advanced\model\StockTest.class
