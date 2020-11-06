@@ -4,7 +4,7 @@
     <property name="java.runtime.name" value="Java(TM) SE Runtime Environment"/>
     <property name="java.vm.version" value="14.0.2+12-46"/>
     <property name="sun.boot.library.path" value="C:\Program Files\Java\jdk-14.0.2\bin"/>
-    <property name="maven.multiModuleProjectDirectory" value="C:\Users\je66b\Downloads\stockquote-week5-solved\stockquote-week5-solved"/>
+    <property name="maven.multiModuleProjectDirectory" value="C:\Users\je66b\Documents\Adv_Java\week_5\stockquote-week5-solved"/>
     <property name="java.vm.vendor" value="Oracle Corporation"/>
     <property name="java.vendor.url" value="https://java.oracle.com/"/>
     <property name="guice.disable.misplaced.annotation.check" value="true"/>
@@ -15,7 +15,7 @@
     <property name="user.country" value="US"/>
     <property name="sun.java.launcher" value="SUN_STANDARD"/>
     <property name="java.vm.specification.name" value="Java Virtual Machine Specification"/>
-    <property name="user.dir" value="C:\Users\je66b\Downloads\stockquote-week5-solved\stockquote-week5-solved"/>
+    <property name="user.dir" value="C:\Users\je66b\Documents\Adv_Java\week_5\stockquote-week5-solved"/>
     <property name="java.vm.compressedOopsMode" value="Zero based"/>
     <property name="java.runtime.version" value="14.0.2+12-46"/>
     <property name="os.arch" value="amd64"/>
@@ -102,7 +102,7 @@
 	at org.apache.maven.surefire.booter.ForkedBooter.main(ForkedBooter.java:75)
 </error>
   </testcase>
-  <testcase classname="com.origamisoftware.teach.advanced.util.XMLUtilsTest" name="testUnmarshallStocks" time="0">
+  <testcase classname="com.origamisoftware.teach.advanced.util.XMLUtilsTest" name="testStocksMarshall" time="0">
     <error message="stockquote-week5-solved\src\main\resources\xml\stock_info.xml" type="java.nio.file.NoSuchFileException">java.nio.file.NoSuchFileException: stockquote-week5-solved\src\main\resources\xml\stock_info.xml
 	at java.base/sun.nio.fs.WindowsException.translateToIOException(WindowsException.java:85)
 	at java.base/sun.nio.fs.WindowsException.rethrowAsIOException(WindowsException.java:103)
@@ -112,7 +112,7 @@
 	at java.base/java.nio.file.Files.newByteChannel(Files.java:426)
 	at java.base/java.nio.file.Files.readAllBytes(Files.java:3272)
 	at java.base/java.nio.file.Files.readString(Files.java:3350)
-	at com.origamisoftware.teach.advanced.util.XMLUtilsTest.testUnmarshallStocks(XMLUtilsTest.java:76)
+	at com.origamisoftware.teach.advanced.util.XMLUtilsTest.testStocksMarshall(XMLUtilsTest.java:90)
 	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
 	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
 	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
@@ -144,7 +144,7 @@
 	at org.apache.maven.surefire.booter.ForkedBooter.main(ForkedBooter.java:75)
 </error>
   </testcase>
-  <testcase classname="com.origamisoftware.teach.advanced.util.XMLUtilsTest" name="testStocksMarshall" time="0">
+  <testcase classname="com.origamisoftware.teach.advanced.util.XMLUtilsTest" name="testUnmarshallStocks" time="0">
     <error message="stockquote-week5-solved\src\main\resources\xml\stock_info.xml" type="java.nio.file.NoSuchFileException">java.nio.file.NoSuchFileException: stockquote-week5-solved\src\main\resources\xml\stock_info.xml
 	at java.base/sun.nio.fs.WindowsException.translateToIOException(WindowsException.java:85)
 	at java.base/sun.nio.fs.WindowsException.rethrowAsIOException(WindowsException.java:103)
@@ -154,7 +154,7 @@
 	at java.base/java.nio.file.Files.newByteChannel(Files.java:426)
 	at java.base/java.nio.file.Files.readAllBytes(Files.java:3272)
 	at java.base/java.nio.file.Files.readString(Files.java:3350)
-	at com.origamisoftware.teach.advanced.util.XMLUtilsTest.testStocksMarshall(XMLUtilsTest.java:90)
+	at com.origamisoftware.teach.advanced.util.XMLUtilsTest.testUnmarshallStocks(XMLUtilsTest.java:76)
 	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
 	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
 	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)

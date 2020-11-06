@@ -1,8 +1,8 @@
 -------------------------------------------------------------------------------
 Test set: com.origamisoftware.teach.advanced.services.DatabasePersonsServiceTest
 -------------------------------------------------------------------------------
-Tests run: 8, Failures: 0, Errors: 8, Skipped: 0, Time elapsed: 0.857 sec <<< FAILURE!
-testAddOrUpdatePerson(com.origamisoftware.teach.advanced.services.DatabasePersonsServiceTest)  Time elapsed: 0.65 sec  <<< ERROR!
+Tests run: 8, Failures: 0, Errors: 8, Skipped: 0, Time elapsed: 0.238 sec <<< FAILURE!
+testGetStocksByPerson(com.origamisoftware.teach.advanced.services.DatabasePersonsServiceTest)  Time elapsed: 0.03 sec  <<< ERROR!
 com.origamisoftware.teach.advanced.util.DatabaseInitializationException: Could not initialize db because of:stockquote-week5-solved\src\main\resources\sql\stocks_db_initialization.sql (The system cannot find the path specified)
 	at com.origamisoftware.teach.advanced.util.DatabaseUtils.initializeDatabase(DatabaseUtils.java:105)
 	at com.origamisoftware.teach.advanced.services.DatabasePersonsServiceTest.initDb(DatabasePersonsServiceTest.java:24)
@@ -45,7 +45,7 @@ Caused by: java.io.FileNotFoundException: stockquote-week5-solved\src\main\resou
 	at com.origamisoftware.teach.advanced.util.DatabaseUtils.initializeDatabase(DatabaseUtils.java:87)
 	... 32 more
 
-testAddOrUpdatePerson(com.origamisoftware.teach.advanced.services.DatabasePersonsServiceTest)  Time elapsed: 0.651 sec  <<< ERROR!
+testGetStocksByPerson(com.origamisoftware.teach.advanced.services.DatabasePersonsServiceTest)  Time elapsed: 0.031 sec  <<< ERROR!
 com.origamisoftware.teach.advanced.util.DatabaseInitializationException: Could not initialize db because of:stockquote-week5-solved\src\main\resources\sql\stocks_db_initialization.sql (The system cannot find the path specified)
 	at com.origamisoftware.teach.advanced.util.DatabaseUtils.initializeDatabase(DatabaseUtils.java:105)
 	at com.origamisoftware.teach.advanced.services.DatabasePersonsServiceTest.initDb(DatabasePersonsServiceTest.java:24)
@@ -87,7 +87,7 @@ Caused by: java.io.FileNotFoundException: stockquote-week5-solved\src\main\resou
 	at com.origamisoftware.teach.advanced.util.DatabaseUtils.initializeDatabase(DatabaseUtils.java:87)
 	... 31 more
 
-testGetStocksByPerson(com.origamisoftware.teach.advanced.services.DatabasePersonsServiceTest)  Time elapsed: 0.086 sec  <<< ERROR!
+testAddOrUpdatePerson(com.origamisoftware.teach.advanced.services.DatabasePersonsServiceTest)  Time elapsed: 0.053 sec  <<< ERROR!
 com.origamisoftware.teach.advanced.util.DatabaseInitializationException: Could not initialize db because of:stockquote-week5-solved\src\main\resources\sql\stocks_db_initialization.sql (The system cannot find the path specified)
 	at com.origamisoftware.teach.advanced.util.DatabaseUtils.initializeDatabase(DatabaseUtils.java:105)
 	at com.origamisoftware.teach.advanced.services.DatabasePersonsServiceTest.initDb(DatabasePersonsServiceTest.java:24)
@@ -130,7 +130,7 @@ Caused by: java.io.FileNotFoundException: stockquote-week5-solved\src\main\resou
 	at com.origamisoftware.teach.advanced.util.DatabaseUtils.initializeDatabase(DatabaseUtils.java:87)
 	... 32 more
 
-testGetStocksByPerson(com.origamisoftware.teach.advanced.services.DatabasePersonsServiceTest)  Time elapsed: 0.087 sec  <<< ERROR!
+testAddOrUpdatePerson(com.origamisoftware.teach.advanced.services.DatabasePersonsServiceTest)  Time elapsed: 0.053 sec  <<< ERROR!
 com.origamisoftware.teach.advanced.util.DatabaseInitializationException: Could not initialize db because of:stockquote-week5-solved\src\main\resources\sql\stocks_db_initialization.sql (The system cannot find the path specified)
 	at com.origamisoftware.teach.advanced.util.DatabaseUtils.initializeDatabase(DatabaseUtils.java:105)
 	at com.origamisoftware.teach.advanced.services.DatabasePersonsServiceTest.initDb(DatabasePersonsServiceTest.java:24)
@@ -172,7 +172,7 @@ Caused by: java.io.FileNotFoundException: stockquote-week5-solved\src\main\resou
 	at com.origamisoftware.teach.advanced.util.DatabaseUtils.initializeDatabase(DatabaseUtils.java:87)
 	... 31 more
 
-testGetPerson(com.origamisoftware.teach.advanced.services.DatabasePersonsServiceTest)  Time elapsed: 0.066 sec  <<< ERROR!
+testGetInstance(com.origamisoftware.teach.advanced.services.DatabasePersonsServiceTest)  Time elapsed: 0.067 sec  <<< ERROR!
 com.origamisoftware.teach.advanced.util.DatabaseInitializationException: Could not initialize db because of:stockquote-week5-solved\src\main\resources\sql\stocks_db_initialization.sql (The system cannot find the path specified)
 	at com.origamisoftware.teach.advanced.util.DatabaseUtils.initializeDatabase(DatabaseUtils.java:105)
 	at com.origamisoftware.teach.advanced.services.DatabasePersonsServiceTest.initDb(DatabasePersonsServiceTest.java:24)
@@ -215,7 +215,7 @@ Caused by: java.io.FileNotFoundException: stockquote-week5-solved\src\main\resou
 	at com.origamisoftware.teach.advanced.util.DatabaseUtils.initializeDatabase(DatabaseUtils.java:87)
 	... 32 more
 
-testGetPerson(com.origamisoftware.teach.advanced.services.DatabasePersonsServiceTest)  Time elapsed: 0.066 sec  <<< ERROR!
+testGetInstance(com.origamisoftware.teach.advanced.services.DatabasePersonsServiceTest)  Time elapsed: 0.068 sec  <<< ERROR!
 com.origamisoftware.teach.advanced.util.DatabaseInitializationException: Could not initialize db because of:stockquote-week5-solved\src\main\resources\sql\stocks_db_initialization.sql (The system cannot find the path specified)
 	at com.origamisoftware.teach.advanced.util.DatabaseUtils.initializeDatabase(DatabaseUtils.java:105)
 	at com.origamisoftware.teach.advanced.services.DatabasePersonsServiceTest.initDb(DatabasePersonsServiceTest.java:24)
@@ -257,7 +257,7 @@ Caused by: java.io.FileNotFoundException: stockquote-week5-solved\src\main\resou
 	at com.origamisoftware.teach.advanced.util.DatabaseUtils.initializeDatabase(DatabaseUtils.java:87)
 	... 31 more
 
-testGetInstance(com.origamisoftware.teach.advanced.services.DatabasePersonsServiceTest)  Time elapsed: 0.052 sec  <<< ERROR!
+testGetPerson(com.origamisoftware.teach.advanced.services.DatabasePersonsServiceTest)  Time elapsed: 0.084 sec  <<< ERROR!
 com.origamisoftware.teach.advanced.util.DatabaseInitializationException: Could not initialize db because of:stockquote-week5-solved\src\main\resources\sql\stocks_db_initialization.sql (The system cannot find the path specified)
 	at com.origamisoftware.teach.advanced.util.DatabaseUtils.initializeDatabase(DatabaseUtils.java:105)
 	at com.origamisoftware.teach.advanced.services.DatabasePersonsServiceTest.initDb(DatabasePersonsServiceTest.java:24)
@@ -300,7 +300,7 @@ Caused by: java.io.FileNotFoundException: stockquote-week5-solved\src\main\resou
 	at com.origamisoftware.teach.advanced.util.DatabaseUtils.initializeDatabase(DatabaseUtils.java:87)
 	... 32 more
 
-testGetInstance(com.origamisoftware.teach.advanced.services.DatabasePersonsServiceTest)  Time elapsed: 0.053 sec  <<< ERROR!
+testGetPerson(com.origamisoftware.teach.advanced.services.DatabasePersonsServiceTest)  Time elapsed: 0.085 sec  <<< ERROR!
 com.origamisoftware.teach.advanced.util.DatabaseInitializationException: Could not initialize db because of:stockquote-week5-solved\src\main\resources\sql\stocks_db_initialization.sql (The system cannot find the path specified)
 	at com.origamisoftware.teach.advanced.util.DatabaseUtils.initializeDatabase(DatabaseUtils.java:105)
 	at com.origamisoftware.teach.advanced.services.DatabasePersonsServiceTest.initDb(DatabasePersonsServiceTest.java:24)

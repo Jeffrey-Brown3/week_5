@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8" ?>
-<testsuite tests="3" failures="0" name="com.origamisoftware.teach.advanced.apps.stockquote.BasicStockQuoteApplicationTest" time="0.133" errors="0" skipped="0">
+<testsuite tests="3" failures="0" name="com.origamisoftware.teach.advanced.apps.stockquote.BasicStockQuoteApplicationTest" time="0.153" errors="0" skipped="0">
   <properties>
     <property name="java.runtime.name" value="Java(TM) SE Runtime Environment"/>
     <property name="java.vm.version" value="14.0.2+12-46"/>
     <property name="sun.boot.library.path" value="C:\Program Files\Java\jdk-14.0.2\bin"/>
-    <property name="maven.multiModuleProjectDirectory" value="C:\Users\je66b\Downloads\stockquote-week5-solved\stockquote-week5-solved"/>
+    <property name="maven.multiModuleProjectDirectory" value="C:\Users\je66b\Documents\Adv_Java\week_5\stockquote-week5-solved"/>
     <property name="java.vm.vendor" value="Oracle Corporation"/>
     <property name="java.vendor.url" value="https://java.oracle.com/"/>
     <property name="guice.disable.misplaced.annotation.check" value="true"/>
@@ -15,7 +15,7 @@
     <property name="user.country" value="US"/>
     <property name="sun.java.launcher" value="SUN_STANDARD"/>
     <property name="java.vm.specification.name" value="Java Virtual Machine Specification"/>
-    <property name="user.dir" value="C:\Users\je66b\Downloads\stockquote-week5-solved\stockquote-week5-solved"/>
+    <property name="user.dir" value="C:\Users\je66b\Documents\Adv_Java\week_5\stockquote-week5-solved"/>
     <property name="java.vm.compressedOopsMode" value="Zero based"/>
     <property name="java.runtime.version" value="14.0.2+12-46"/>
     <property name="os.arch" value="amd64"/>
@@ -60,7 +60,7 @@
     <property name="sun.stdout.encoding" value="cp437"/>
     <property name="sun.cpu.isalist" value="amd64"/>
   </properties>
-  <testcase classname="com.origamisoftware.teach.advanced.apps.stockquote.BasicStockQuoteApplicationTest" name="testValidConstruction" time="0.094"/>
-  <testcase classname="com.origamisoftware.teach.advanced.apps.stockquote.BasicStockQuoteApplicationTest" name="testDisplayResults" time="0.038"/>
+  <testcase classname="com.origamisoftware.teach.advanced.apps.stockquote.BasicStockQuoteApplicationTest" name="testValidConstruction" time="0.098"/>
+  <testcase classname="com.origamisoftware.teach.advanced.apps.stockquote.BasicStockQuoteApplicationTest" name="testDisplayResults" time="0.054"/>
   <testcase classname="com.origamisoftware.teach.advanced.apps.stockquote.BasicStockQuoteApplicationTest" name="testMainNegative" time="0.001"/>
 </testsuite>

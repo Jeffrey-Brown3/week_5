@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8" ?>
-<testsuite tests="5" failures="0" name="com.origamisoftware.teach.advanced.util.DatabaseUtilsTest" time="0.382" errors="1" skipped="0">
+<testsuite tests="5" failures="0" name="com.origamisoftware.teach.advanced.util.DatabaseUtilsTest" time="0.335" errors="1" skipped="0">
   <properties>
     <property name="java.runtime.name" value="Java(TM) SE Runtime Environment"/>
     <property name="java.vm.version" value="14.0.2+12-46"/>
     <property name="sun.boot.library.path" value="C:\Program Files\Java\jdk-14.0.2\bin"/>
-    <property name="maven.multiModuleProjectDirectory" value="C:\Users\je66b\Downloads\stockquote-week5-solved\stockquote-week5-solved"/>
+    <property name="maven.multiModuleProjectDirectory" value="C:\Users\je66b\Documents\Adv_Java\week_5\stockquote-week5-solved"/>
     <property name="java.vm.vendor" value="Oracle Corporation"/>
     <property name="java.vendor.url" value="https://java.oracle.com/"/>
     <property name="guice.disable.misplaced.annotation.check" value="true"/>
@@ -15,7 +15,7 @@
     <property name="user.country" value="US"/>
     <property name="sun.java.launcher" value="SUN_STANDARD"/>
     <property name="java.vm.specification.name" value="Java Virtual Machine Specification"/>
-    <property name="user.dir" value="C:\Users\je66b\Downloads\stockquote-week5-solved\stockquote-week5-solved"/>
+    <property name="user.dir" value="C:\Users\je66b\Documents\Adv_Java\week_5\stockquote-week5-solved"/>
     <property name="java.vm.compressedOopsMode" value="Zero based"/>
     <property name="java.runtime.version" value="14.0.2+12-46"/>
     <property name="os.arch" value="amd64"/>
@@ -60,11 +60,7 @@
     <property name="sun.stdout.encoding" value="cp437"/>
     <property name="sun.cpu.isalist" value="amd64"/>
   </properties>
-  <testcase classname="com.origamisoftware.teach.advanced.util.DatabaseUtilsTest" name="testGetSessionFactory" time="0.267"/>
-  <testcase classname="com.origamisoftware.teach.advanced.util.DatabaseUtilsTest" name="testGetConnectionWorks" time="0.026"/>
-  <testcase classname="com.origamisoftware.teach.advanced.util.DatabaseUtilsTest" name="testBadInitFile" time="0.029"/>
-  <testcase classname="com.origamisoftware.teach.advanced.util.DatabaseUtilsTest" name="testGetConnection" time="0.029"/>
-  <testcase classname="com.origamisoftware.teach.advanced.util.DatabaseUtilsTest" name="testGoodInitFile" time="0.031">
+  <testcase classname="com.origamisoftware.teach.advanced.util.DatabaseUtilsTest" name="testGoodInitFile" time="0.012">
     <error message="Could not initialize db because of:stockquote-week5-solved\src\main\resources\sql\stocks_db_initialization.sql (The system cannot find the path specified)" type="com.origamisoftware.teach.advanced.util.DatabaseInitializationException">com.origamisoftware.teach.advanced.util.DatabaseInitializationException: Could not initialize db because of:stockquote-week5-solved\src\main\resources\sql\stocks_db_initialization.sql (The system cannot find the path specified)
 	at com.origamisoftware.teach.advanced.util.DatabaseUtils.initializeDatabase(DatabaseUtils.java:105)
 	at com.origamisoftware.teach.advanced.util.DatabaseUtilsTest.testGoodInitFile(DatabaseUtilsTest.java:20)
@@ -105,31 +101,35 @@ Caused by: java.io.FileNotFoundException: stockquote-week5-solved\src\main\resou
 	at com.origamisoftware.teach.advanced.util.DatabaseUtils.initializeDatabase(DatabaseUtils.java:87)
 	... 30 more
 </error>
-    <system-err>Oct 18, 2020 6:16:16 PM org.hibernate.cfg.Configuration configure
+    <system-err>Oct 20, 2020 5:15:03 PM org.hibernate.cfg.Configuration configure
 INFO: HHH000043: Configuring from resource: hibernate.cfg.xml
-Oct 18, 2020 6:16:16 PM org.hibernate.cfg.Configuration getConfigurationInputStream
+Oct 20, 2020 5:15:03 PM org.hibernate.cfg.Configuration getConfigurationInputStream
 INFO: HHH000040: Configuration resource: hibernate.cfg.xml
-Oct 18, 2020 6:16:16 PM org.hibernate.cfg.Configuration doConfigure
+Oct 20, 2020 5:15:03 PM org.hibernate.cfg.Configuration doConfigure
 INFO: HHH000041: Configured SessionFactory: null
-Oct 18, 2020 6:16:16 PM org.hibernate.cfg.Configuration configure
+Oct 20, 2020 5:15:03 PM org.hibernate.cfg.Configuration configure
 INFO: HHH000043: Configuring from resource: hibernate.cfg.xml
-Oct 18, 2020 6:16:16 PM org.hibernate.cfg.Configuration getConfigurationInputStream
+Oct 20, 2020 5:15:03 PM org.hibernate.cfg.Configuration getConfigurationInputStream
 INFO: HHH000040: Configuration resource: hibernate.cfg.xml
-Oct 18, 2020 6:16:16 PM org.hibernate.cfg.Configuration doConfigure
+Oct 20, 2020 5:15:03 PM org.hibernate.cfg.Configuration doConfigure
 INFO: HHH000041: Configured SessionFactory: null
-Oct 18, 2020 6:16:16 PM org.hibernate.cfg.Configuration configure
+Oct 20, 2020 5:15:03 PM org.hibernate.cfg.Configuration configure
 INFO: HHH000043: Configuring from resource: hibernate.cfg.xml
-Oct 18, 2020 6:16:16 PM org.hibernate.cfg.Configuration getConfigurationInputStream
+Oct 20, 2020 5:15:03 PM org.hibernate.cfg.Configuration getConfigurationInputStream
 INFO: HHH000040: Configuration resource: hibernate.cfg.xml
-Oct 18, 2020 6:16:16 PM org.hibernate.cfg.Configuration doConfigure
+Oct 20, 2020 5:15:03 PM org.hibernate.cfg.Configuration doConfigure
 INFO: HHH000041: Configured SessionFactory: null
-Oct 18, 2020 6:16:16 PM org.hibernate.cfg.Configuration configure
+Oct 20, 2020 5:15:03 PM org.hibernate.cfg.Configuration configure
 INFO: HHH000043: Configuring from resource: hibernate.cfg.xml
-Oct 18, 2020 6:16:16 PM org.hibernate.cfg.Configuration getConfigurationInputStream
+Oct 20, 2020 5:15:03 PM org.hibernate.cfg.Configuration getConfigurationInputStream
 INFO: HHH000040: Configuration resource: hibernate.cfg.xml
-Oct 18, 2020 6:16:16 PM org.hibernate.cfg.Configuration doConfigure
+Oct 20, 2020 5:15:03 PM org.hibernate.cfg.Configuration doConfigure
 INFO: HHH000041: Configured SessionFactory: null
-Sun Oct 18 18:16:16 EDT 2020 WARN: Establishing SSL connection without server&apos;s identity verification is not recommended. According to MySQL 5.5.45+, 5.6.26+ and 5.7.6+ requirements SSL connection must be established by default if explicit option isn&apos;t set. For compliance with existing applications not using SSL the verifyServerCertificate property is set to &apos;false&apos;. You need either to explicitly disable SSL by setting useSSL=false, or set useSSL=true and provide truststore for server certificate verification.
+Tue Oct 20 17:15:03 EDT 2020 WARN: Establishing SSL connection without server&apos;s identity verification is not recommended. According to MySQL 5.5.45+, 5.6.26+ and 5.7.6+ requirements SSL connection must be established by default if explicit option isn&apos;t set. For compliance with existing applications not using SSL the verifyServerCertificate property is set to &apos;false&apos;. You need either to explicitly disable SSL by setting useSSL=false, or set useSSL=true and provide truststore for server certificate verification.
 </system-err>
   </testcase>
+  <testcase classname="com.origamisoftware.teach.advanced.util.DatabaseUtilsTest" name="testBadInitFile" time="0.011"/>
+  <testcase classname="com.origamisoftware.teach.advanced.util.DatabaseUtilsTest" name="testGetConnection" time="0.009"/>
+  <testcase classname="com.origamisoftware.teach.advanced.util.DatabaseUtilsTest" name="testGetSessionFactory" time="0.279"/>
+  <testcase classname="com.origamisoftware.teach.advanced.util.DatabaseUtilsTest" name="testGetConnectionWorks" time="0.024"/>
 </testsuite>

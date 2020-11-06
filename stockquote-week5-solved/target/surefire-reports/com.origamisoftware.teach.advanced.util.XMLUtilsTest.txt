@@ -1,7 +1,7 @@
 -------------------------------------------------------------------------------
 Test set: com.origamisoftware.teach.advanced.util.XMLUtilsTest
 -------------------------------------------------------------------------------
-Tests run: 3, Failures: 0, Errors: 3, Skipped: 0, Time elapsed: 0.002 sec <<< FAILURE!
+Tests run: 3, Failures: 0, Errors: 3, Skipped: 0, Time elapsed: 0 sec <<< FAILURE!
 testUnmarshallStocksWithSchemaValidation(com.origamisoftware.teach.advanced.util.XMLUtilsTest)  Time elapsed: 0 sec  <<< ERROR!
 java.nio.file.NoSuchFileException: stockquote-week5-solved\src\main\resources\xml\stock_info.xml
 	at java.base/sun.nio.fs.WindowsException.translateToIOException(WindowsException.java:85)
@@ -43,7 +43,7 @@ java.nio.file.NoSuchFileException: stockquote-week5-solved\src\main\resources\xm
 	at org.apache.maven.surefire.booter.ForkedBooter.runSuitesInProcess(ForkedBooter.java:115)
 	at org.apache.maven.surefire.booter.ForkedBooter.main(ForkedBooter.java:75)
 
-testUnmarshallStocks(com.origamisoftware.teach.advanced.util.XMLUtilsTest)  Time elapsed: 0 sec  <<< ERROR!
+testStocksMarshall(com.origamisoftware.teach.advanced.util.XMLUtilsTest)  Time elapsed: 0 sec  <<< ERROR!
 java.nio.file.NoSuchFileException: stockquote-week5-solved\src\main\resources\xml\stock_info.xml
 	at java.base/sun.nio.fs.WindowsException.translateToIOException(WindowsException.java:85)
 	at java.base/sun.nio.fs.WindowsException.rethrowAsIOException(WindowsException.java:103)
@@ -53,7 +53,7 @@ java.nio.file.NoSuchFileException: stockquote-week5-solved\src\main\resources\xm
 	at java.base/java.nio.file.Files.newByteChannel(Files.java:426)
 	at java.base/java.nio.file.Files.readAllBytes(Files.java:3272)
 	at java.base/java.nio.file.Files.readString(Files.java:3350)
-	at com.origamisoftware.teach.advanced.util.XMLUtilsTest.testUnmarshallStocks(XMLUtilsTest.java:76)
+	at com.origamisoftware.teach.advanced.util.XMLUtilsTest.testStocksMarshall(XMLUtilsTest.java:90)
 	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
 	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
 	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
@@ -84,7 +84,7 @@ java.nio.file.NoSuchFileException: stockquote-week5-solved\src\main\resources\xm
 	at org.apache.maven.surefire.booter.ForkedBooter.runSuitesInProcess(ForkedBooter.java:115)
 	at org.apache.maven.surefire.booter.ForkedBooter.main(ForkedBooter.java:75)
 
-testStocksMarshall(com.origamisoftware.teach.advanced.util.XMLUtilsTest)  Time elapsed: 0 sec  <<< ERROR!
+testUnmarshallStocks(com.origamisoftware.teach.advanced.util.XMLUtilsTest)  Time elapsed: 0 sec  <<< ERROR!
 java.nio.file.NoSuchFileException: stockquote-week5-solved\src\main\resources\xml\stock_info.xml
 	at java.base/sun.nio.fs.WindowsException.translateToIOException(WindowsException.java:85)
 	at java.base/sun.nio.fs.WindowsException.rethrowAsIOException(WindowsException.java:103)
@@ -94,7 +94,7 @@ java.nio.file.NoSuchFileException: stockquote-week5-solved\src\main\resources\xm
 	at java.base/java.nio.file.Files.newByteChannel(Files.java:426)
 	at java.base/java.nio.file.Files.readAllBytes(Files.java:3272)
 	at java.base/java.nio.file.Files.readString(Files.java:3350)
-	at com.origamisoftware.teach.advanced.util.XMLUtilsTest.testStocksMarshall(XMLUtilsTest.java:90)
+	at com.origamisoftware.teach.advanced.util.XMLUtilsTest.testUnmarshallStocks(XMLUtilsTest.java:76)
 	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
 	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
 	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)

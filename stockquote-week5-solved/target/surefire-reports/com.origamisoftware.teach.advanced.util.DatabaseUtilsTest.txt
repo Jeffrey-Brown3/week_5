@@ -1,8 +1,8 @@
 -------------------------------------------------------------------------------
 Test set: com.origamisoftware.teach.advanced.util.DatabaseUtilsTest
 -------------------------------------------------------------------------------
-Tests run: 5, Failures: 0, Errors: 1, Skipped: 0, Time elapsed: 0.383 sec <<< FAILURE!
-testGoodInitFile(com.origamisoftware.teach.advanced.util.DatabaseUtilsTest)  Time elapsed: 0.031 sec  <<< ERROR!
+Tests run: 5, Failures: 0, Errors: 1, Skipped: 0, Time elapsed: 0.336 sec <<< FAILURE!
+testGoodInitFile(com.origamisoftware.teach.advanced.util.DatabaseUtilsTest)  Time elapsed: 0.012 sec  <<< ERROR!
 com.origamisoftware.teach.advanced.util.DatabaseInitializationException: Could not initialize db because of:stockquote-week5-solved\src\main\resources\sql\stocks_db_initialization.sql (The system cannot find the path specified)
 	at com.origamisoftware.teach.advanced.util.DatabaseUtils.initializeDatabase(DatabaseUtils.java:105)
 	at com.origamisoftware.teach.advanced.util.DatabaseUtilsTest.testGoodInitFile(DatabaseUtilsTest.java:20)
